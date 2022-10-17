@@ -36,7 +36,8 @@ public class AuthController {
                     String token = jwtUtils.generateJwtToken(user.getEmail());
                     return ResponseEntity
                             .ok(new UserAuthResponse(
-                                    new UserResponse(user.getEmail(), user.getFirstName(), user.getLastName()),
+                                    new UserResponse(user.getId(), user.getEmail(),
+                                            user.getFirstName(), user.getLastName()),
                                     token));
                 })
                 .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
@@ -61,16 +62,15 @@ public class AuthController {
         String token = jwtUtils.generateJwtToken(user.getEmail());
 
         return ResponseEntity.ok(new UserAuthResponse(
-                new UserResponse(user.getEmail(), user.getFirstName(), user.getLastName()),
+                new UserResponse(user.getId(), user.getEmail(), user.getFirstName(), user.getLastName()),
                 token));
     }
-
 
     @GetMapping("/me")
     public ResponseEntity<?> me(@AuthenticationPrincipal String userEmail) {
         return userRepository.findByEmail(userEmail)
-                .map(user -> ResponseEntity.ok(
-                        new UserResponse(user.getEmail(), user.getFirstName(), user.getLastName())))
+                .map(user -> ResponseEntity.ok(new UserResponse(user.getId(),
+                        user.getEmail(), user.getFirstName(), user.getLastName())))
                 .orElse(ResponseEntity.of(Optional.empty()));
     }
 }
