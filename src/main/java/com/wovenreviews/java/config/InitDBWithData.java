@@ -40,6 +40,8 @@ public class InitDBWithData {
 
     @PostConstruct
     public void init() {
+        cleanDB();
+
         this.random = new Random();
         this.faker = Faker.instance();
 
@@ -87,6 +89,12 @@ public class InitDBWithData {
                 .toList();
 
         auditRepository.saveAll(audits);
+    }
+
+    private void cleanDB() {
+        auditRepository.deleteAll();
+        projectRepository.deleteAll();
+        userRepository.deleteAll();
     }
 
 }
