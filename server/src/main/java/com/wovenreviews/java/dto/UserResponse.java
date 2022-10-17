@@ -2,22 +2,28 @@ package com.wovenreviews.java.dto;
 
 public class UserResponse {
 
+    private Integer id;
     private String email;
-    private String firstNAme;
+    private String firstName;
     private String lastName;
 
-    public UserResponse(String email, String firstNAme, String lastName) {
+    public UserResponse(Integer id, String email, String firstName, String lastName) {
+        this.id = id;
         this.email = email;
-        this.firstNAme = firstNAme;
+        this.firstName = firstName;
         this.lastName = lastName;
+    }
+
+    public Integer getId() {
+        return id;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public String getFirstNAme() {
-        return firstNAme;
+    public String getFirstName() {
+        return firstName;
     }
 
     public String getLastName() {
