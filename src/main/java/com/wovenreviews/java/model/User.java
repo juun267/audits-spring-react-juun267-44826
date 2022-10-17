@@ -14,7 +14,8 @@ public class User {
     private String password;
     private String firstName;
     private String lastName;
-
+    @Column(name = "daily_email_updates")
+    private Boolean dailyEmailUpdates;
     @Column(name = "created_at")
     private Instant createdAt;
 
@@ -68,6 +69,14 @@ public class User {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public Boolean getDailyEmailUpdates() {
+        return dailyEmailUpdates;
+    }
+
+    public void setDailyEmailUpdates(Boolean dailyEmailUpdates) {
+        this.dailyEmailUpdates = dailyEmailUpdates;
     }
 
     public Instant getCreatedAt() {
