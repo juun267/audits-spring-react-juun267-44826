@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 public class AuditsController {
 
     @Autowired
-    AuditRepository auditRepository;
+    private AuditRepository auditRepository;
 
     @PostMapping
     public List<AuditsResponse> getByFilter(@RequestBody AuditsRequest auditsRequest) {

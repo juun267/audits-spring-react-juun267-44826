@@ -9,7 +9,7 @@ create table if not exists audits
     message       text,
     context       jsonb,
     user_id       integer,
-    created_at    timestamp         not null default current_timestamp
+    created_at    timestamp         default current_timestamp
 );
 create index on audits (event);
 create index on audits (status);

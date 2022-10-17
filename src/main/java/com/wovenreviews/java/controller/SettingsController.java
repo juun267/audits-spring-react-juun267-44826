@@ -17,7 +17,7 @@ import java.util.Optional;
 public class SettingsController {
 
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
     @GetMapping
     public ResponseEntity<List<SettingsResponse>> getUserConfig(@AuthenticationPrincipal String userEmail) {

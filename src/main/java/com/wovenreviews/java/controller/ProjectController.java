@@ -19,10 +19,10 @@ import java.util.stream.Collectors;
 public class ProjectController {
 
     @Autowired
-    ProjectRepository projectRepository;
+    private ProjectRepository projectRepository;
 
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
     @PostMapping
     public ResponseEntity<ProjectResponse> create(@RequestBody ProjectRequest createProject,
