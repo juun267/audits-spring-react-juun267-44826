@@ -8,5 +8,6 @@
   <include file="change-sets/init/001_create_projects.sql" relativeToChangelogFile="true"/>
   <include file="change-sets/init/002_create_users.sql" relativeToChangelogFile="true"/>
   <include file="change-sets/init/003_add_relation.sql" relativeToChangelogFile="true"/>
+  <include file="change-sets/init/004_create_audits.sql" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>
